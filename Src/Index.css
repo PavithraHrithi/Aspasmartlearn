@@ -205,7 +205,7 @@ a:hover {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(to right, rgba(0, 77, 64, 0.8), rgba(77, 182, 172, 0.6)), url('https://placehold.co/1200x600/004d40/f5f5f5?text=Aspa+Smart+Learn+Background') no-repeat center center/cover; /* New gradient colors */
+    background: linear-gradient(to right, rgba(0, 77, 64, 0.8), rgba(77, 182, 172, 0.6)), url('../src/assets/hero-background.jpg') no-repeat center center/cover; /* New gradient colors */
     color: var(--text-light);
     text-align: center;
     padding: 100px 20px;
