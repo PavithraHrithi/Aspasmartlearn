@@ -817,4 +817,121 @@ a:hover {
 
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,
-.contact-form textarea:focus
+.contact-form textarea:focus {
+    border-color: var(--primary-light-teal);
+    box-shadow: 0 0 0 3px rgba(77, 182, 172, 0.2); /* Light teal shadow on focus */
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form button {
+    background-color: var(--primary-light-teal);
+    color: var(--text-light);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.contact-form button:hover {
+    background-color: var(--primary-dark-teal);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px var(--hover-shadow-color);
+}
+
+/* Added focus state for contact form button */
+.contact-form button:focus {
+    outline: 3px solid var(--primary-light-teal);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(77, 182, 172, 0.3);
+}
+
+/* Responsive Design */
+
+/* Tablet and Smaller Desktops (768px to 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5em;
+    }
+
+    .hero-content p {
+        font-size: 1.3em;
+    }
+
+    .nav-menu ul {
+        gap: 20px;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+}
+
+/* Mobile Devices (max-width: 767px) */
+@media (max-width: 767px) {
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 2.5em; /* Adjust for smaller screens */
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .hero-content h1 {
+        font-size: 3em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    .section-padding {
+        padding: 40px 0; /* Reduce padding on mobile */
+    }
+
+    .intro-section,
+    .about-content-section,
+    .contact-section-content,
+    .subject-category-detail {
+        padding: 30px; /* Adjust padding for cards/sections */
+    }
+
+    .contact-info, .contact-form-container {
+        min-width: unset; /* Allow flex items to shrink */
+        width: 100%; /* Take full width on small screens */
+    }
+
+    .features-grid,
+    .apply-steps,
+    .subject-categories,
+    .site-list,
+    .subject-category-detail ul {
+        grid-template-columns: 1fr; /* Stack cards vertically on mobile */
+    }
+}
