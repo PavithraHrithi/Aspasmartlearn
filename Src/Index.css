@@ -95,6 +95,13 @@ a:hover {
     box-shadow: 0 6px 15px var(--hover-shadow-color);
 }
 
+/* Added focus state for accessibility */
+.cta-button:focus {
+    outline: 3px solid var(--primary-light-teal);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(77, 182, 172, 0.3);
+}
+
 /* Header Section */
 .header {
     background-color: var(--text-light);
@@ -137,6 +144,7 @@ a:hover {
     display: flex;
     gap: 30px;
 }
+
 /* Responsive Navigation Menu */
 @media (max-width: 768px) {
     .nav-menu {
@@ -172,6 +180,7 @@ a:hover {
         align-items: center;
     }
 }
+
 .nav-menu ul li a {
     color: var(--text-dark);
     font-weight: 500;
@@ -201,6 +210,14 @@ a:hover {
 .nav-menu ul li a:hover {
     color: var(--primary-dark-teal);
 }
+
+/* Added focus state for navigation links */
+.nav-menu ul li a:focus {
+    outline: 3px solid var(--primary-light-teal);
+    outline-offset: 2px;
+    border-radius: 4px; /* Optional: adds a slight rounded corner to focus outline */
+}
+
 
 /* Hamburger Menu for Mobile */
 .hamburger-menu {
@@ -239,7 +256,8 @@ a:hover {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(to right, rgba(0, 77, 64, 0.8), rgba(77, 182, 172, 0.6)), url('Src/Assets/hero-background.jpg') no-repeat center center/cover; /* New gradient colors */
+    /* CORRECTED IMAGE PATH: from index.css, 'assets' is in the same directory */
+    background: linear-gradient(to right, rgba(0, 77, 64, 0.8), rgba(77, 182, 172, 0.6)), url('./assets/hero-background.jpg') no-repeat center center/cover;
     color: var(--text-light);
     text-align: center;
     padding: 100px 20px;
@@ -456,6 +474,13 @@ a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Added focus state for opening links */
+.opening-links a:focus {
+    outline: 3px solid var(--primary-light-teal);
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+
 .opening-links .btn-primary {
     background-color: var(--primary-light-teal);
     color: var(--text-light);
@@ -501,6 +526,13 @@ a:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 25px var(--hover-shadow-color);
     background-color: var(--accent-gray); /* Subtle background change on hover */
+}
+
+/* Added focus state for category cards */
+.category-card:focus-within { /* Focus-within to style card when internal elements are focused */
+    outline: 3px solid var(--primary-light-teal);
+    outline-offset: 4px;
+    border-radius: 12px;
 }
 
 .category-card h3 {
@@ -648,6 +680,13 @@ a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Added focus state for site links */
+.site-card .site-link:focus {
+    outline: 3px solid var(--primary-light-teal);
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+
 /* Specific styles for About Us page */
 .about-content-section {
     background-color: var(--text-light);
@@ -702,6 +741,14 @@ a:hover {
     background-color: var(--primary-light-teal); /* Light teal on hover */
     color: var(--text-light);
 }
+
+/* Added focus state for list items for better accessibility if they are interactive */
+.about-content-section ul li:focus-within { /* Use focus-within if they contain focusable elements */
+    outline: 3px solid var(--primary-light-teal);
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
 
 /* Specific styles for Contact Us page */
 .contact-section-content {
@@ -770,293 +817,4 @@ a:hover {
 
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,
-.contact-form textarea:focus {
-    border-color: var(--primary-light-teal);
-    box-shadow: 0 0 0 3px rgba(77, 182, 172, 0.2); /* Light teal shadow on focus */
-    outline: none;
-}
-
-.contact-form textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.contact-form button {
-    background-color: var(--primary-light-teal);
-    color: var(--text-light);
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px var(--shadow-color);
-}
-
-.contact-form button:hover {
-    background-color: var(--primary-dark-teal);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px var(--hover-shadow-color);
-}
-
-
-/* Responsive Design */
-
-/* Tablet and Smaller Desktops (768px to 1024px) */
-@media (max-width: 1024px) {
-    .container {
-        padding: 0 15px;
-    }
-
-    h1 {
-        font-size: 3em;
-    }
-
-    h2 {
-        font-size: 2em;
-    }
-
-    .hero-content h1 {
-        font-size: 3.5em;
-    }
-
-    .hero-content p {
-        font-size: 1.3em;
-    }
-
-    .nav-menu ul {
-        gap: 20px;
-    }
-
-    .section-padding {
-        padding: 60px 0;
-    }
-}
-
-/* Mobile Devices (max-width: 767px) */
-@media (max-width: 767px) {
-    .header-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo-title {
-        flex-grow: 1;
-    }
-
-    .hamburger-menu {
-        display: flex;
-    }
-
-    .nav-menu {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        background-color: var(--text-light);
-        position: absolute;
-        top: 80px;
-        left: 0;
-        padding: 20px 0;
-        border-top: 1px solid var(--accent-gray);
-        box-shadow: 0 5px 10px var(--shadow-color);
-        border-radius: 0 0 10px 10px;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .nav-menu ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .nav-menu ul li a {
-        font-size: 1.2em;
-        padding: 10px 0;
-        display: block;
-        width: fit-content;
-        margin: 0 auto;
-    }
-
-    .hero-section {
-        padding: 80px 15px;
-        min-height: 50vh;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5em;
-        margin-bottom: 15px;
-    }
-
-    .hero-content p {
-        font-size: 1.1em;
-        margin-bottom: 30px;
-    }
-
-    .cta-button {
-        padding: 12px 25px;
-        font-size: 1.1em;
-    }
-
-    .section-padding {
-        padding: 40px 0;
-    }
-
-    h2 {
-        font-size: 1.8em;
-        margin-bottom: 30px;
-    }
-
-    .intro-section {
-        padding: 40px 20px;
-        margin: 20px auto;
-    }
-
-    .intro-section p {
-        font-size: 1em;
-        text-align: left;
-    }
-
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .feature-card {
-        padding: 25px;
-    }
-
-    .footer {
-        padding: 20px 15px;
-    }
-
-    .opening-card {
-        padding: 20px;
-    }
-    .opening-card h3 {
-        font-size: 1.5em;
-    }
-    .opening-links {
-        flex-direction: column;
-    }
-    .opening-links a {
-        width: 100%;
-        text-align: center;
-    }
-
-    .subject-categories {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .category-card {
-        padding: 25px;
-    }
-    .category-card h3 {
-        font-size: 1.5em;
-    }
-    .subject-category-detail {
-        padding: 30px 20px;
-    }
-    .subject-category-detail h3 {
-        font-size: 1.7em;
-        text-align: center;
-    }
-    .subject-category-detail ul {
-        grid-template-columns: 1fr;
-    }
-    .subject-category-detail ul li {
-        font-size: 1em;
-        padding: 12px 15px;
-    }
-
-    .site-list {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .site-card {
-        padding: 25px;
-    }
-    .site-card h3 {
-        font-size: 1.4em;
-    }
-    .site-card .site-link {
-        width: 100%;
-    }
-
-    .about-content-section {
-        padding: 30px;
-        margin-top: 30px;
-    }
-    .about-content-section h2 {
-        font-size: 1.8em;
-    }
-    .about-content-section p {
-        font-size: 1em;
-        text-align: left;
-    }
-    .about-content-section ul li {
-        font-size: 1em;
-        padding: 12px 20px;
-    }
-
-    .contact-section-content {
-        flex-direction: column;
-        padding: 30px;
-        margin-top: 30px;
-    }
-    .contact-info h3, .contact-form-container h3 {
-        text-align: center;
-        font-size: 1.6em;
-    }
-    .contact-info p {
-        justify-content: center;
-    }
-    .contact-form button {
-        width: 100%;
-    }
-    a:focus,
-.cta-button:focus,
-.hamburger-menu:focus {
-    outline: 3px dashed var(--primary-light-teal);
-    outline-offset: 4px;
-}
-    @media (max-width: 768px) {
-    .nav-menu ul {
-        flex-direction: column;
-        gap: 20px;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background-color: var(--text-light);
-        padding: 20px;
-        box-shadow: 0 4px 15px var(--shadow-color);
-        border-radius: 10px;
-        display: none;
-    }
-
-    .nav-menu.active ul {
-        display: flex;
-    }
-
-    .hamburger-menu {
-        display: flex;
-    }
-    }
-    .footer {
-    background-color: var(--footer-background);
-    color: var(--text-light);
-    text-align: center;
-    padding: 30px 20px;
-    font-size: 0.9em;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px 15px 0 0;
-    box-shadow: 0 -5px 15px var(--shadow-color);
-}
-}
-
-
-
+.contact-form textarea:focus
