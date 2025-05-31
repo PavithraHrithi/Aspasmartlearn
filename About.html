@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspa Smart Learn - About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/index.css">
+    <style>
+        /* Specific styles for About Us page */
+        .about-content-section {
+            background-color: var(--text-light);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            padding: 50px;
+            margin-top: 50px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px var(--hover-shadow-color);
+        }
+
+        .about-content-section h2 {
+            margin-bottom: 30px;
+            color: var(--primary-dark-teal);
+        }
+
+        .about-content-section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: var(--accent-dark-gray);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .about-content-section ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .about-content-section ul li {
+            background-color: var(--accent-gray);
+            padding: 15px 25px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            font-size: 1.05em;
+            color: var(--primary-dark-teal);
+            font-weight: 500;
+            border-left: 4px solid var(--primary-light-teal);
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .about-content-section ul li:hover {
+            transform: translateX(5px);
+            background-color: var(--primary-light-teal);
+            color: var(--text-light);
+        }
+
+        /* Responsive adjustments for about us */
+        @media (max-width: 767px) {
+            .about-content-section {
+                padding: 30px;
+                margin-top: 30px;
+            }
+            .about-content-section h2 {
+                font-size: 1.8em;
+            }
+            .about-content-section p {
+                font-size: 1em;
+                text-align: left;
+            }
+            .about-content-section ul li {
+                font-size: 1em;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-title">
+                <img src="src/assets/logo.jpg" alt="Aspa Smart Learn Logo" class="logo">
+                <span class="site-title">Aspa Smart Learn</span>
+            </div>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="how-to-apply.html">How to Apply</a></li>
+                    <li><a href="current-openings.html">Current Openings</a></li>
+                    <li><a href="subjects.html">Subjects</a></li>
+                    <li><a href="official-sites.html">Official Sites</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content section-padding">
+        <div class="container">
+            <div class="about-content-section">
+                <h2>About Aspa Smart Learn</h2>
+                <p>Aspa Smart Learn is a pioneering educational platform dedicated to empowering government exam aspirants, particularly those aiming for positions in the Pondicherry Government. Our mission is to bridge the gap between aspiring candidates and their dream careers by providing high-quality, accessible, and effective learning resources.</p>
+                <p>We believe in a modern approach to education, leveraging cutting-edge tools and methodologies to make learning engaging and efficient. Our commitment extends beyond just delivering content; we are deeply invested in the holistic development of our students, fostering critical thinking, problem-solving skills, and a strong foundation in core subjects.</p>
+                <p>Our user-friendly interface is designed with the student in mind, ensuring a seamless and intuitive learning experience. From comprehensive study materials and interactive lessons to rigorous mock tests and personalized progress tracking, Aspa Smart Learn is your trusted partner at every step of your preparation journey. Join our community of bright minds and embark on your path to success with confidence.</p>
+                
+                <h3>Our Core Values:</h3>
+                <ul>
+                    <li><strong>Excellence:</strong> Striving for the highest quality in content and delivery.</li>
+                    <li><strong>Accessibility:</strong> Making education available to all, regardless of background.</li>
+                    <li><strong>Innovation:</strong> Continuously adopting new technologies for better learning.</li>
+                    <li><strong>Student-Centricity:</strong> Focusing on the needs and success of our aspirants.</li>
+                    <li><strong>Integrity:</strong> Maintaining transparency and honesty in all our operations.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Aspa Smart Learn. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const navMenu = document.getElementById('navMenu');
+
+            hamburgerMenu.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                hamburgerMenu.classList.toggle('active');
+            });
+
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburgerMenu.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
