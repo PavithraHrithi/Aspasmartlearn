@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspa Smart Learn - Subjects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/index.css">
+    <style>
+        /* Specific styles for Subjects page */
+        .subject-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .category-card {
+            background-color: var(--text-light);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--accent-gray);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px var(--hover-shadow-color);
+            background-color: var(--accent-gray);
+        }
+
+        .category-card h3 {
+            color: var(--primary-dark-teal);
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-card .icon-placeholder {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: var(--primary-light-teal);
+            opacity: 0.8;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .category-card:hover .icon-placeholder {
+            transform: scale(1.1);
+            color: var(--primary-dark-teal);
+        }
+
+        .subject-list-container {
+            margin-top: 50px;
+        }
+
+        .subject-category-detail {
+            background-color: var(--text-light);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--primary-dark-teal);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .subject-category-detail:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px var(--hover-shadow-color);
+        }
+
+        .subject-category-detail h3 {
+            color: var(--primary-dark-teal);
+            margin-bottom: 25px;
+            font-size: 2em;
+            text-align: left;
+            border-bottom: 2px solid var(--accent-gray);
+            padding-bottom: 10px;
+        }
+
+        .subject-category-detail ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .subject-category-detail ul li {
+            background-color: var(--background-light);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--accent-gray);
+            font-size: 1.1em;
+            color: var(--text-dark);
+            transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .subject-category-detail ul li:hover {
+            background-color: var(--primary-light-teal);
+            transform: translateX(5px);
+            color: var(--text-light);
+        }
+
+        .subject-category-detail ul li::before {
+            content: '📚';
+            font-size: 1.2em;
+            color: var(--primary-dark-teal);
+            transition: color 0.3s ease;
+        }
+
+        .subject-category-detail ul li:hover::before {
+            color: var(--text-light);
+        }
+
+        /* Responsive adjustments for subjects */
+        @media (max-width: 767px) {
+            .subject-categories {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .category-card {
+                padding: 25px;
+            }
+            .category-card h3 {
+                font-size: 1.5em;
+            }
+            .subject-category-detail {
+                padding: 30px 20px;
+            }
+            .subject-category-detail h3 {
+                font-size: 1.7em;
+                text-align: center;
+            }
+            .subject-category-detail ul {
+                grid-template-columns: 1fr;
+            }
+            .subject-category-detail ul li {
+                font-size: 1em;
+                padding: 12px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-title">
+                <img src="src/assets/logo.jpg" alt="Aspa Smart Learn Logo" class="logo">
+                <span class="site-title">Aspa Smart Learn</span>
+            </div>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="how-to-apply.html">How to Apply</a></li>
+                    <li><a href="current-openings.html">Current Openings</a></li>
+                    <li><a href="subjects.html" class="active">Subjects</a></li>
+                    <li><a href="official-sites.html">Official Sites</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content section-padding">
+        <div class="container">
+            <h2>Explore Our Comprehensive Subject List</h2>
+            <p style="text-align: center; margin-bottom: 50px; font-size: 1.1em; color: var(--accent-dark-gray);">Select a category to view the detailed list of subjects covered for various government examinations.</p>
+
+            <div class="subject-categories">
+                <a href="#aptitude" class="category-card">
+                    <div class="icon-placeholder">&#128170;</div> <h3>Aptitude & Reasoning</h3>
+                </a>
+                <a href="#general-knowledge" class="category-card">
+                    <div class="icon-placeholder">&#127760;</div> <h3>General Knowledge & Awareness</h3>
+                </a>
+                <a href="#social-political" class="category-card">
+                    <div class="icon-placeholder">&#128100;</div> <h3>Social & Political Studies</h3>
+                </a>
+                <a href="#science-technology" class="category-card">
+                    <div class="icon-placeholder">&#129514;</div> <h3>Science & Technology</h3>
+                </a>
+                <a href="#language-skills" class="category-card">
+                    <div class="icon-placeholder">&#128220;</div> <h3>Language Skills</h3>
+                </a>
+            </div>
+
+            <div class="subject-list-container">
+                <div id="aptitude" class="subject-category-detail">
+                    <h3>Aptitude & Reasoning</h3>
+                    <ul>
+                        <li>General Intelligence & Reasoning</li>
+                        <li>Quantitative Aptitude / General Mathematics</li>
+                        <li>Mathematics (Advanced / Degree Level)</li>
+                    </ul>
+                </div>
+
+                <div id="general-knowledge" class="subject-category-detail">
+                    <h3>General Knowledge & Awareness</h3>
+                    <ul>
+                        <li>General Awareness</li>
+                        <li>General Knowledge</li>
+                        <li>Current Affairs</li>
+                        <li>General Studies</li>
+                    </ul>
+                </div>
+
+                <div id="social-political" class="subject-category-detail">
+                    <h3>Social & Political Studies</h3>
+                    <ul>
+                        <li>Indian History</li>
+                        <li>World History</li>
+                        <li>Indian Geography</li>
+                        <li>World Geography</li>
+                        <li>Indian Polity</li>
+                        <li>Indian Constitution</li>
+                        <li>Governance</li>
+                        <li>Freedom Struggle</li>
+                        <li>Modern / Contemporary India</li>
+                        <li>Indian Economics</li>
+                        <li>Ethics and Morality</li>
+                    </ul>
+                </div>
+
+                <div id="science-technology" class="subject-category-detail">
+                    <h3>Science & Technology</h3>
+                    <ul>
+                        <li>General Science</li>
+                        <li>Physics</li>
+                        <li>Chemistry</li>
+                        <li>Biology / Life Sciences</li>
+                        <li>Earth / Space Sciences</li>
+                        <li>Scientific Methodology, Concepts, and Technologies</li>
+                        <li>Computer Knowledge</li>
+                    </ul>
+                </div>
+
+                <div id="language-skills" class="subject-category-detail">
+                    <h3>Language Skills</h3>
+                    <ul>
+                        <li>General English (Grammar, Literature, Comprehension)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Aspa Smart Learn. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const navMenu = document.getElementById('navMenu');
+
+            hamburgerMenu.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                hamburgerMenu.classList.toggle('active');
+            });
+
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburgerMenu.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+                          
