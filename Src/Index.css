@@ -1,179 +1,311 @@
-/* Google Fonts - Inter */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+/* Import Rubik font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
 
-/* Base styles for all screen sizes */
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    background-color: #f3f4f6; /* Equivalent to gray-100 */
-    color: #374151; /* Equivalent to gray-800 */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+/* Global Styles - New Elegant Palette */
+:root {
+    --primary-dark-teal: #004d40; /* Deep Emerald/Teal - for strong accents, text */
+    --primary-light-teal: #4db6ac; /* Medium Teal - for buttons, highlights */
+    --background-light: #f5f5f5; /* Soft light gray */
+    --text-dark: #333333; /* Dark gray for main text */
+    --text-light: #ffffff; /* White for light backgrounds */
+    --accent-gray: #e0e0e0; /* Lighter gray for borders, subtle backgrounds */
+    --accent-dark-gray: #757575; /* Medium gray for secondary text */
+    --footer-background: #263238; /* Dark Slate Gray */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-shadow-color: rgba(0, 0, 0, 0.2);
 }
 
-header {
-    background: linear-gradient(to right, #2563eb, #4f46e5); /* Equivalent to from-blue-600 to-indigo-700 */
-    color: white;
-    padding: 1rem; /* Equivalent to p-4 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-lg */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    scroll-behavior: smooth;
+    display: flex; /* Added for sticky footer */
+    flex-direction: column; /* Added for sticky footer */
+    min-height: 100vh; /* Added for sticky footer */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+h1, h2, h3 {
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--primary-dark-teal);
+}
+
+h1 {
+    font-size: 3.5em; /* Base size, will be adjusted for header logo/name */
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-light-teal);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-dark-teal);
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-light-teal);
+    color: var(--text-light);
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.cta-button:hover {
+    background-color: var(--primary-dark-teal);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px var(--hover-shadow-color);
+}
+
+/* Header Section */
+.header {
+    background-color: var(--text-light);
+    padding: 15px 0; /* Adjusted padding for a balanced look */
+    border-bottom: 1px solid var(--accent-gray);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px var(--shadow-color); /* Added box-shadow */
 }
 
 .header-container {
-    max-width: 1280px; /* Equivalent to mx-auto */
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
-    flex-direction: column; /* Default to column for mobile */
+    flex-direction: column; /* Stacked on mobile */
     align-items: center;
     justify-content: space-between;
+    gap: 15px; /* Space between logo/name and nav */
 }
 
 .logo-brand {
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* Equivalent to space-x-2 */
-    margin-bottom: 0.5rem; /* Equivalent to mb-2 */
+    gap: 10px; /* Space between logo image and text */
 }
 
 .logo-brand img {
-    width: 40px; /* Equivalent to w-10 */
-    height: 40px; /* Equivalent to h-10 */
-    border-radius: 9999px; /* Equivalent to rounded-full */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-md */
-    transition: all 0.3s ease-in-out; /* Equivalent to transition-all duration-300 ease-in-out */
+    width: 50px; /* Default logo size for mobile */
+    height: 50px;
+    border-radius: 50%; /* Make it round */
+    object-fit: cover;
+    transition: all 0.3s ease;
 }
 
 .logo-brand h1 {
-    font-size: 1.5rem; /* Equivalent to text-2xl */
-    font-weight: 700; /* Equivalent to font-bold */
-    transition: all 0.3s ease-in-out; /* Equivalent to transition-all duration-300 ease-in-out */
-    margin: 0; /* Remove default h1 margin */
+    font-size: 1.8em; /* Default website name size for mobile */
+    margin: 0; /* Override global h1 margin */
+    color: var(--primary-dark-teal); /* Ensure color is correct */
+    transition: all 0.3s ease;
+    text-align: left; /* Override global h1 text-align */
 }
 
-nav ul {
-    display: flex;
+.main-nav ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 1rem; /* Equivalent to space-x-4 */
-    font-size: 0.875rem; /* Equivalent to text-sm */
+    display: flex;
+    flex-wrap: wrap; /* Allow navigation items to wrap on smaller screens */
+    justify-content: center;
+    gap: 15px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.2s ease-in-out; /* Equivalent to hover:text-blue-200 transition-colors duration-200 */
+.main-nav a {
+    color: var(--primary-dark-teal);
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-nav a:hover {
-    color: #bfdbfe; /* A lighter blue for hover */
+.main-nav a:hover {
+    background-color: var(--primary-light-teal);
+    color: var(--text-light);
 }
 
-main {
-    max-width: 1280px; /* Equivalent to mx-auto */
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1rem; /* Equivalent to p-4 */
-    flex-grow: 1;
-}
-
-section {
-    background-color: white;
-    border-radius: 0.5rem; /* Equivalent to rounded-lg */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-md */
-    padding: 1.5rem; /* Equivalent to p-6 */
-    margin-bottom: 1.5rem; /* Equivalent to mb-6 */
-}
-
-section h2 {
-    font-size: 1.875rem; /* Equivalent to text-3xl */
-    font-weight: 600; /* Equivalent to font-semibold */
-    color: #4f46e5; /* Equivalent to text-indigo-600 */
-    margin-bottom: 1rem; /* Equivalent to mb-4 */
-}
-
-section p {
-    font-size: 1.125rem; /* Equivalent to text-lg */
-    line-height: 1.625; /* Equivalent to leading-relaxed */
-}
-
-section p + p {
-    margin-top: 1rem; /* Equivalent to mt-4 */
-    font-size: 1rem; /* Equivalent to text-base */
-}
-
-.feature-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Default to single column for mobile */
-    gap: 1.5rem; /* Equivalent to gap-6 */
-}
-
-.feature-card {
-    background-color: white;
-    border-radius: 0.5rem; /* Equivalent to rounded-lg */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-md */
-    padding: 1.5rem; /* Equivalent to p-6 */
-}
-
-.feature-card h3 {
-    font-size: 1.25rem; /* Equivalent to text-xl */
-    font-weight: 700; /* Equivalent to font-bold */
-    color: #2563eb; /* Equivalent to text-blue-600 */
-    margin-bottom: 0.5rem; /* Equivalent to mb-2 */
-}
-
-.feature-card p {
-    color: #4b5563; /* Equivalent to text-gray-700 */
-}
-
-footer {
-    background-color: #1f2937; /* Equivalent to gray-800 */
-    color: white;
-    padding: 1rem; /* Equivalent to p-4 */
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, rgba(0, 77, 64, 0.8), rgba(77, 182, 172, 0.6)), url('../assets/hero-background.jpg') no-repeat center center/cover;
+    color: var(--text-light);
     text-align: center;
-    margin-top: 1.5rem; /* Equivalent to mt-6 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px; /* Adjust as needed */
 }
 
-.footer-container {
-    max-width: 1280px; /* Equivalent to mx-auto */
+.hero-content h1 {
+    font-size: 3.2em;
+    color: var(--text-light); /* Ensure hero text is white */
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Desktop View (min-width: 640px for sm: and min-width: 768px for md: and min-width: 1024px for lg:) */
-@media (min-width: 640px) { /* Equivalent to sm: breakpoint */
-    .header-container {
-        flex-direction: row; /* Change to row for tablet/desktop */
-    }
-
-    .logo-brand {
-        margin-bottom: 0; /* Remove bottom margin on larger screens */
-    }
-
-    nav ul {
-        font-size: 1rem; /* Equivalent to sm:text-base */
-    }
+/* About Section */
+.about-section {
+    background-color: var(--text-light);
 }
 
-@media (min-width: 1024px) { /* Equivalent to lg: breakpoint */
+/* Services Section */
+.services-section {
+    background-color: var(--background-light);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for mobile */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background-color: var(--text-light);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--hover-shadow-color);
+}
+
+.service-card h3 {
+    color: var(--primary-dark-teal);
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    font-size: 1em;
+    color: var(--accent-dark-gray);
+}
+
+
+/* Footer Section */
+.footer {
+    background-color: var(--footer-background);
+    color: var(--accent-gray);
+    padding: 30px 0;
+    text-align: center;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+.footer-links a {
+    color: var(--accent-gray);
+    margin: 0 10px;
+    font-size: 0.9em;
+}
+
+.footer-links a:hover {
+    color: var(--primary-light-teal);
+}
+
+/* --- Responsive Adjustments --- */
+
+/* Tablet and larger screens (min-width: 768px) */
+@media (min-width: 768px) {
+    .header-container {
+        flex-direction: row; /* Header items side-by-side */
+        gap: 20px; /* Adjust gap for wider screens */
+    }
+
     .logo-brand img {
-        width: 64px; /* Equivalent to lg:w-16 */
-        height: 64px; /* Equivalent to lg:h-16 */
+        width: 60px; /* Larger logo size for tablet */
+        height: 60px;
     }
 
     .logo-brand h1 {
-        font-size: 2.25rem; /* Equivalent to lg:text-4xl */
+        font-size: 2.2em; /* Larger website name for tablet */
     }
 
-    .feature-grid {
-        grid-template-columns: repeat(3, 1fr); /* Equivalent to lg:grid-cols-3 */
+    .main-nav ul {
+        flex-wrap: nowrap; /* Prevent navigation items from wrapping */
+    }
+
+    .hero-content h1 {
+        font-size: 4em; /* Larger hero heading */
+    }
+
+    .hero-content p {
+        font-size: 1.5em; /* Larger hero paragraph */
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for services */
     }
 }
 
-@media (min-width: 768px) { /* Equivalent to md: breakpoint */
-    .feature-grid {
-        grid-template-columns: repeat(2, 1fr); /* Equivalent to md:grid-cols-2 */
+/* Desktop and larger screens (min-width: 1024px) */
+@media (min-width: 1024px) {
+    .header {
+        padding: 25px 0; /* More padding for a taller header on desktop */
+    }
+
+    .logo-brand img {
+        width: 75px; /* Even larger logo size for desktop */
+        height: 75px;
+    }
+
+    .logo-brand h1 {
+        font-size: 2.8em; /* Even larger website name for desktop */
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr); /* Three columns for services */
     }
 }
 
+/* Large Desktop screens (min-width: 1200px) */
+@media (min-width: 1200px) {
+    .hero-content h1 {
+        font-size: 4.8em;
+    }
+}
+
+    
