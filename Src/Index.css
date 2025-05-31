@@ -152,7 +152,7 @@ a:hover {
 /* Responsive Navigation Menu */
 @media (max-width: 768px) {
     .nav-menu {
-        display: none;
+        display: flex;
         /* Corrected: Mobile menu as a full-screen fixed overlay */
         width: 100vw; /* Full viewport width */
         height: 100vh; /* Full viewport height */
