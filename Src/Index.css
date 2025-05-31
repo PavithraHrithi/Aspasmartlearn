@@ -153,7 +153,7 @@ a:hover {
 @media (max-width: 768px) {
     
     .nav-menu {
-    display: none;
+    display: show;
     width: 100vw; /* Ensures it covers the full viewport width */
     height: 100vh; /* Ensures it covers the full viewport height */
     background-color: var(--text-light);
