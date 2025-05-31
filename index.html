@@ -3,74 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Awesome Site</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <title>Aspa Smart Learn - Your Guide for Pondicherry Government Job Applications & Exam Preparation</title>
+    <meta name="description" content="Aspa Smart Learn: Your comprehensive guide for Pondicherry Government Job applications, exam preparation, and study materials. Find latest job notifications, step-by-step application guides, and expert resources for TNPSC and other government exams in Pondicherry.">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/index.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo-brand">
-                <img
-                    src="https://placehold.co/60x60/3498db/ffffff?text=LOGO"
-                    alt="Website Logo"
-                    onerror="this.onerror=null; this.src='https://placehold.co/60x60/cccccc/333333?text=Logo';"
-                />
-                <h1>My Awesome Site</h1>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-title">
+                <img src="src/assets/logo.jpg" alt="Aspa Smart Learn Logo" class="logo">
+                <span class="site-title">Aspa Smart Learn</span>
             </div>
-
-            <nav>
+            <nav class="nav-menu" id="navMenu">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="how-to-apply.html">How to Apply</a></li>
+                    <li><a href="current-openings.html">Current Openings</a></li>
+                    <li><a href="subjects.html">Subjects</a></li>
+                    <li><a href="official-sites.html">Official Sites</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </header>
 
-    <main>
-        <section>
-            <h2>Welcome to Our Website!</h2>
-            <p>
-                This is a responsive web page built with plain HTML and CSS.
-                It's designed to look great on all devices, from mobile phones to large desktop monitors.
-            </p>
-            <p>
-                We've adjusted the header elements to ensure the logo and site name are more prominent on desktop screens using standard CSS media queries.
-            </p>
-        </section>
+    <section class="hero-section">
+        <div class="container hero-content">
+            <h1>Welcome to Aspa Smart Learn</h1>
+            <p>Your Comprehensive Guide for Pondicherry Government Job Applications & Exam Preparation</p>
+            <a href="subjects.html" class="cta-button">Explore Study Materials</a>
+        </div>
+    </section>
 
-        <div class="feature-grid">
-            <div class="feature-card">
-                <h3>Feature One</h3>
-                <p>
-                    Discover amazing functionalities that will streamline your daily tasks and enhance your experience.
-                </p>
-            </div>
+    <section class="intro-section section-padding">
+        <div class="container">
+            <h2>Your Definitive Guide to Pondicherry Government Jobs</h2>
+            <p>Aspa Smart Learn is your dedicated platform for navigating the world of Pondicherry Government Exams. We provide clear, step-by-step guidance on how to apply for various government job notifications, along with meticulously curated study materials to ensure your success. Our focus is on simplifying the complex application process and providing you with the best resources for comprehensive exam preparation.</p>
+            <p>Whether you're looking for the latest job openings, detailed subject breakdowns, or expert tips on application procedures, Aspa Smart Learn is designed to be your one-stop solution. We aim to help you achieve your career aspirations in the Pondicherry government sector, offering a streamlined and effective learning experience, unlike general TNPSC sites.</p>
+        </div>
+    </section>
 
-            <div class="feature-card">
-                <h3>Feature Two</h3>
-                <p>
-                    Enjoy a seamless user interface designed for intuitive navigation and ease of use.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <h3>Feature Three</h3>
-                <p>
-                    Benefit from robust and reliable performance, ensuring your data is always safe and accessible.
-                </p>
+    <section class="features-section section-padding">
+        <div class="container">
+            <h2>Why Choose Aspa Smart Learn for Your Preparation?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon-circle">&#128221;</div> <h3>Step-by-Step Application Guides</h3>
+                    <p>Detailed instructions on how to fill forms, prepare documents, and apply for Pondicherry government jobs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-circle">&#128218;</div> <h3>Comprehensive Study Materials</h3>
+                    <p>Access well-organized study notes, syllabi, and resources for all relevant subjects and exams.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-circle">&#128227;</div> <h3>Latest Job Notifications</h3>
+                    <p>Stay updated with real-time alerts and detailed information on new government job openings in Pondicherry.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-circle">&#128202;</div> <h3>Previous Year Papers & Mock Tests</h3>
+                    <p>Practice with past exam papers and simulated mock tests to enhance your exam readiness.</p>
+                </div>
             </div>
         </div>
-    </main>
+    </section>
 
-    <footer>
-        <div class="footer-container">
-            <p>&copy; 2025 My Awesome Site. All rights reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Aspa Smart Learn. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const navMenu = document.getElementById('navMenu');
+
+            // Toggle navigation menu visibility on hamburger click
+            hamburgerMenu.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                hamburgerMenu.classList.toggle('active'); // Add active class to hamburger for animation
+            });
+
+            // Close nav menu when a link is clicked (for single-page navigation or when navigating away)
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburgerMenu.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 
