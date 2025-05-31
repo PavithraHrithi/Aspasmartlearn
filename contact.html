@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspa Smart Learn - Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/index.css">
+    <style>
+        /* Specific styles for Contact Us page */
+        .contact-section-content {
+            background-color: var(--text-light);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            padding: 50px;
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-section-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px var(--hover-shadow-color);
+        }
+
+        .contact-info, .contact-form-container {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3, .contact-form-container h3 {
+            color: var(--primary-dark-teal);
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            text-align: left;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: var(--accent-dark-gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info p .icon {
+            font-size: 1.5em;
+            color: var(--primary-light-teal);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid var(--accent-gray);
+            border-radius: 8px;
+            font-family: 'Rubik', sans-serif;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary-light-teal);
+            box-shadow: 0 0 0 3px rgba(77, 182, 172, 0.2);
+            outline: none;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            background-color: var(--primary-light-teal);
+            color: var(--text-light);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px var(--shadow-color);
+        }
+
+        .contact-form button:hover {
+            background-color: var(--primary-dark-teal);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px var(--hover-shadow-color);
+        }
+
+
+        /* Responsive adjustments for contact us */
+        @media (max-width: 767px) {
+            .contact-section-content {
+                flex-direction: column;
+                padding: 30px;
+                margin-top: 30px;
+            }
+            .contact-info h3, .contact-form-container h3 {
+                text-align: center;
+                font-size: 1.6em;
+            }
+            .contact-info p {
+                justify-content: center;
+            }
+            .contact-form button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-title">
+                <img src="src/assets/logo.jpg" alt="Aspa Smart Learn Logo" class="logo">
+                <span class="site-title">Aspa Smart Learn</span>
+            </div>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="how-to-apply.html">How to Apply</a></li>
+                    <li><a href="current-openings.html">Current Openings</a></li>
+                    <li><a href="subjects.html">Subjects</a></li>
+                    <li><a href="official-sites.html">Official Sites</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content section-padding">
+        <div class="container">
+            <h2>Get in Touch with Aspa Smart Learn</h2>
+            <p style="text-align: center; margin-bottom: 50px; font-size: 1.1em; color: var(--accent-dark-gray);">Have questions or need assistance? Reach out to us through the form below or using our contact details.</p>
+
+            <div class="contact-section-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><span class="icon">✉</span> Email: <a href="mailto:info@aspasmartlearn.com">info@aspasmartlearn.com</a></p>
+                    <p><span class="icon">&#128222;</span> Phone: <a href="tel:+911234567890">+91 12345 67890</a></p>
+                    <p><span class="icon">&#127968;</span> Address: 123 Smart Learning Street, Knowledge City, Pondicherry, India - 605001</p>
+                    <p><span class="icon">⏰</span> Business Hours: Mon - Fri: 9:00 AM - 6:00 PM IST</p>
+                </div>
+
+                <div class="contact-form-container">
+                    <h3>Send Us a Message</h3>
+                    <form class="contact-form" action="#" method="POST">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Aspa Smart Learn. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const navMenu = document.getElementById('navMenu');
+
+            hamburgerMenu.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                hamburgerMenu.classList.toggle('active');
+            });
+
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburgerMenu.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+  
