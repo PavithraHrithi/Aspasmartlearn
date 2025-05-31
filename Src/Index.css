@@ -151,22 +151,23 @@ a:hover {
 
 /* Responsive Navigation Menu */
 @media (max-width: 768px) {
+    
     .nav-menu {
-        display: show; /* Hidden by default */
-        width: 100%;
-        background-color: var(--text-light);
-        box-shadow: 0 4px 8px var(--shadow-color);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        flex-direction: column;
-        padding: 20px 0;
-        z-index: 999;
+    display: none;
+    width: 100vw; /* Ensures it covers the full viewport width */
+    height: 100vh; /* Ensures it covers the full viewport height */
+    background-color: var(--text-light);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    position: fixed; /* Changed to fixed to overlay the entire viewport */
+    top: 0; /* Positions it at the top of the viewport */
+    left: 0;
+    flex-direction: column;
+    justify-content: center; /* Centers menu items vertically within the full height */
+    align-items: center; /* Centers menu items horizontally */
+    padding: 80px 0 20px 0; /* Added top padding to clear the header, adjusted bottom */
+    z-index: 1001; /* Ensured it's higher than the header's z-index (1000) */
+    overflow-y: auto; /* Allows the menu content to scroll if it overflows the viewport height */
     }
-.nav-menu.show {
-    display: flex; /* This correctly shows the menu when the 'show' class is present */
-}
-
     .nav-menu.show {
         display: flex; /* Shown when 'show' class is added by JS */
     }
