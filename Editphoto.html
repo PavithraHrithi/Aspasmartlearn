@@ -3,90 +3,167 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aspa Smart Learn - Official Sites</title>
+  <title>Aspa Smart Learn - Photo & Signature Editor</title>
+  <meta name="description" content="Use Aspa Smart Learn's online tool to resize and crop your passport photos and signatures to meet Puducherry Government job application requirements. Ensure correct dimensions and file size.">
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="src/index.css">
   <link href="https://cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.css" rel="stylesheet">
 
   <style>
-    body {
-      font-family: 'Rubik', sans-serif;
-      padding: 20px;
-    }
+    /* Removed conflicting header styles from here.
+       All header styles are now managed by src/index.css for consistency. */
 
-    /* HEADER STYLES */
-    .header {
-      background-color: #004466;
-      color: white;
-      padding: 15px 0;
-    }
-
-    .container.header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-    }
-
-    .logo-title {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo {
-      height: 50px;
-      margin-right: 10px;
-    }
-
-    .site-title {
-      font-size: 1.5em;
-      font-weight: 600;
-    }
-
-    .nav-menu ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-menu a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .nav-menu a.active {
-      text-decoration: underline;
-    }
-
-    .hamburger-menu {
-      display: none;
-    }
-
-    /* Photo Editor Styles */
-    .editor {
+    /* Photo Editor Specific Styles (kept, but adjusted for consistency) */
+    .editor-container {
+      background-color: var(--text-light); /* Use theme color */
+      border-radius: 15px;
+      box-shadow: 0 4px 15px var(--shadow-color);
+      padding: 40px;
+      margin-top: 50px;
       margin-bottom: 40px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid var(--accent-gray);
     }
 
-    .preview {
+    .editor-section {
+      margin-bottom: 40px;
+      padding: 20px;
+      border: 1px solid var(--accent-gray);
+      border-radius: 10px;
+      background-color: var(--background-light);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .editor-section h2 {
+      text-align: left; /* Align section titles to left */
+      margin-bottom: 25px;
+      color: var(--primary-dark-teal);
+      font-size: 2em;
+      border-bottom: 2px solid var(--primary-light-teal); /* Highlight */
+      padding-bottom: 10px;
+    }
+
+    .editor-section input[type="file"] {
+      display: block;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid var(--accent-gray);
+      border-radius: 8px;
+      background-color: var(--text-light);
+      color: var(--text-dark);
+      font-family: 'Rubik', sans-serif;
+      font-size: 1em;
+      width: 100%;
+      max-width: 400px; /* Limit width for input */
+    }
+
+    .editor-section img {
+      max-width: 100%;
+      display: block; /* Ensure image takes full width of its container */
+      height: auto;
+      margin-bottom: 20px;
+      border: 1px solid var(--accent-gray);
+      border-radius: 8px;
+    }
+
+    .editor-section button {
+      background-color: var(--primary-light-teal);
+      color: var(--text-light);
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px var(--shadow-color);
       margin-top: 10px;
     }
 
-    img {
-      max-width: 100%;
+    .editor-section button:hover {
+      background-color: var(--primary-dark-teal);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px var(--hover-shadow-color);
     }
 
     canvas {
       display: block;
-      margin-top: 10px;
-      border: 1px solid #ccc;
+      margin-top: 20px;
+      border: 2px dashed var(--primary-light-teal); /* More prominent border */
+      border-radius: 8px;
+      background-color: var(--background-light);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    /* Responsive nav (optional) */
-    @media (max-width: 768px) {
-      .nav-menu ul {
-        flex-direction: column;
-      }
+    .instructions {
+      background-color: var(--accent-gray);
+      border-radius: 10px;
+      padding: 25px;
+      margin-top: 40px;
+      border-left: 5px solid var(--primary-dark-teal);
+      color: var(--accent-dark-gray);
+    }
+
+    .instructions h3 {
+      color: var(--primary-dark-teal);
+      margin-bottom: 15px;
+      font-size: 1.6em;
+    }
+
+    .instructions ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .instructions ul li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 25px;
+      line-height: 1.6;
+    }
+
+    .instructions ul li::before {
+      content: '•';
+      color: var(--primary-light-teal);
+      font-size: 1.2em;
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: bold;
+    }
+
+    /* Responsive adjustments for editor */
+    @media (max-width: 767px) {
+        .editor-container {
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .editor-section {
+            padding: 15px;
+        }
+        .editor-section h2 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        .editor-section input[type="file"] {
+            font-size: 0.9em;
+        }
+        .editor-section button {
+            padding: 10px 20px;
+            font-size: 1em;
+            width: 100%; /* Full width button on mobile */
+        }
+        .instructions {
+            padding: 20px;
+        }
+        .instructions h3 {
+            font-size: 1.4em;
+        }
+        .instructions ul li {
+            font-size: 0.95em;
+        }
     }
   </style>
 </head>
@@ -103,33 +180,60 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="how-to-apply.html">How to Apply</a></li>
           <li><a href="current-openings.html">Current Openings</a></li>
-          <li><a href="editphoto.html">Edit Photo</a></li>
-          <li><a href="subjects.html">Subjects</a></li>
-          <li><a href="official-sites.html" class="active">Official Sites</a></li>
+          <li><a href="editphoto.html" class="active">Edit Photo</a></li> <li><a href="subjects.html">Subjects</a></li>
+          <li><a href="official-sites.html">Official Sites</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+      <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+      </button>
     </div>
   </header>
 
-  <main>
-    <h2>📸 Passport Size Photo (238x306 px)</h2>
-    <div class="editor">
-      <input type="file" id="photoInput" accept="image/jpeg">
-      <div><img id="photoImage"></div>
-      <button onclick="cropImage('photo', 238, 306, 50000)">Crop & Download</button>
-      <canvas id="photoCanvas" class="preview"></canvas>
-    </div>
+  <main class="main-content section-padding">
+    <div class="container editor-container">
+      <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary-dark-teal);">Online Photo & Signature Resizer for Govt. Applications</h2>
+      <p style="text-align: center; margin-bottom: 30px; color: var(--accent-dark-gray);">Easily crop and resize your images to meet the exact specifications for Puducherry Government job applications.</p>
 
-    <h2>✍️ Signature (350x150 px)</h2>
-    <div class="editor">
-      <input type="file" id="signInput" accept="image/jpeg">
-      <div><img id="signImage"></div>
-      <button onclick="cropImage('sign', 350, 150, 30000)">Crop & Download</button>
-      <canvas id="signCanvas" class="preview"></canvas>
+      <div class="editor-section">
+        <h2>📸 Passport Size Photo (238x306 px)</h2>
+        <input type="file" id="photoInput" accept="image/jpeg">
+        <div><img id="photoImage"></div>
+        <button onclick="cropImage('photo', 238, 306, 50000)">Crop & Download Photo</button>
+        <canvas id="photoCanvas" class="preview"></canvas>
+      </div>
+
+      <div class="editor-section">
+        <h2>✍️ Signature (350x150 px)</h2>
+        <input type="file" id="signInput" accept="image/jpeg">
+        <div><img id="signImage"></div>
+        <button onclick="cropImage('sign', 350, 150, 30000)">Crop & Download Signature</button>
+        <canvas id="signCanvas" class="preview"></canvas>
+      </div>
+
+      <div class="instructions">
+        <h3>Important Guidelines for Image Uploads:</h3>
+        <ul>
+          <li>Always refer to the official notification for the most accurate and up-to-date image specifications.</li>
+          <li>Ensure your photo is a recent, clear passport-sized photograph with a light background.</li>
+          <li>Your signature should be on a white paper with a black ink pen.</li>
+          <li>This tool helps with dimensions and file size, but clarity and content are your responsibility.</li>
+          <li>If you encounter issues, try using a different browser or checking your original image quality.</li>
+        </ul>
+      </div>
+
     </div>
   </main>
+
+  <footer class="footer">
+      <div class="container">
+          <p>&copy; 2025 Aspa Smart Learn. All Rights Reserved.</p>
+      </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.js"></script>
   <script>
@@ -155,6 +259,10 @@
 
     function cropImage(type, width, height, maxSize) {
       const cropper = type === 'photo' ? photoCropper : signCropper;
+      if (!cropper) {
+          alert('Please select an image first.');
+          return;
+      }
       const canvas = cropper.getCroppedCanvas({ width, height });
       const previewCanvas = document.getElementById(type + 'Canvas');
       previewCanvas.width = width;
@@ -173,7 +281,28 @@
         link.click();
       }, 'image/jpeg');
     }
+
+    // Hamburger Menu Toggle (Copied from index.html)
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburgerMenu.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            hamburgerMenu.classList.toggle('active');
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    hamburgerMenu.classList.remove('active');
+                }
+            });
+        });
+    });
   </script>
 
 </body>
 </html>
+
