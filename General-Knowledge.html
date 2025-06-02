@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspa Smart Learn - General Knowledge</title>
+    <meta name="description" content="Explore General Knowledge topics and download study materials for Puducherry Government exams. Access MCQs, current affairs, and more after a short ad.">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/index.css">
+    <style>
+        /* Specific styles for General Knowledge page (inline, as per request) */
+        .gk-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            color: var(--accent-dark-gray);
+        }
+
+        .gk-content-section {
+            background-color: var(--text-light);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            padding: 40px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            max-width: 900px; /* Consistent with other content cards */
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid var(--accent-gray);
+        }
+
+        .gk-content-section h3 {
+            color: var(--primary-dark-teal);
+            margin-bottom: 20px;
+            font-size: 2em;
+            text-align: left;
+            border-bottom: 2px solid var(--primary-light-teal);
+            padding-bottom: 10px;
+        }
+
+        .gk-content-section p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            color: var(--accent-dark-gray);
+        }
+
+        .download-section {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--primary-light-teal);
+        }
+
+        .download-section h4 {
+            color: var(--primary-dark-teal);
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+
+        .download-section .download-button {
+            background-color: var(--primary-light-teal);
+            color: var(--text-light);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px var(--shadow-color);
+            display: inline-block; /* For centering */
+            margin-top: 15px;
+        }
+
+        .download-section .download-button:hover:not(:disabled) {
+            background-color: var(--primary-dark-teal);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px var(--hover-shadow-color);
+        }
+
+        .download-section .download-button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .download-section .download-message {
+            margin-top: 20px;
+            font-size: 1em;
+            color: var(--primary-dark-teal);
+            font-weight: 500;
+        }
+
+        /* Ad Modal Styles */
+        .ad-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .ad-modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .ad-modal-content {
+            background-color: var(--text-light);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .ad-modal-content h3 {
+            color: var(--primary-dark-teal);
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .ad-modal-content p {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            color: var(--accent-dark-gray);
+        }
+
+        .ad-countdown {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--primary-light-teal);
+            margin-bottom: 20px;
+        }
+
+        .ad-close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            color: var(--accent-dark-gray);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .ad-close-button:hover {
+            color: var(--primary-dark-teal);
+        }
+
+        /* Responsive adjustments for GK page */
+        @media (max-width: 767px) {
+            .gk-content-section {
+                padding: 25px;
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+            .gk-content-section h3 {
+                font-size: 1.8em;
+            }
+            .download-section {
+                padding: 20px;
+            }
+            .download-section h4 {
+                font-size: 1.4em;
+            }
+            .download-section .download-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+            .ad-modal-content {
+                padding: 30px;
+            }
+            .ad-modal-content h3 {
+                font-size: 1.8em;
+            }
+            .ad-countdown {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-title">
+                <img src="src/assets/logo.jpg" alt="Aspa Smart Learn Logo" class="logo">
+                <span class="site-title">Aspa Smart Learn</span>
+            </div>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="how-to-apply.html">How to Apply</a></li>
+                    <li><a href="current-openings.html">Current Openings</a></li>
+                    <li><a href="subjects.html">Subjects</a></li>
+                    <li><a href="general-knowledge.html" class="active">General Knowledge</a></li> <li><a href="official-sites.html">Official Sites</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content section-padding">
+        <div class="container">
+            <h2>General Knowledge for Government Exams</h2>
+            <p class="gk-intro">Enhance your General Knowledge for various government recruitment exams. Below you'll find important topics and downloadable resources, including MCQs specific to Puducherry.</p>
+
+            <div class="gk-content-section">
+                <h3>Key General Knowledge Areas</h3>
+                <p>General Knowledge is a crucial component of most government examinations. It covers a vast array of subjects designed to test a candidate's awareness of the world around them. Mastering GK requires consistent reading and staying updated with current events.</p>
+                <ul>
+                    <li><strong>Indian History:</strong> Ancient, Medieval, and Modern Indian History, including key events, movements, and personalities.</li>
+                    <li><strong>Indian Geography:</strong> Physical features, climate, rivers, agriculture, industries, and population.</li>
+                    <li><strong>Indian Polity & Constitution:</strong> Structure and functioning of the Indian Constitution, Preamble, Fundamental Rights, Duties, Directive Principles, Parliament, Judiciary, etc.</li>
+                    <li><strong>Indian Economy:</strong> Basic concepts, economic planning, sectors of the economy, inflation, banking, and international organizations.</li>
+                    <li><strong>General Science:</strong> Basic concepts of Physics, Chemistry, and Biology, often focusing on everyday applications.</li>
+                    <li><strong>Current Affairs:</strong> National and International events, awards, sports, important dates, government schemes, etc.</li>
+                    <li><strong>Art & Culture:</strong> Indian classical dances, music, festivals, architecture, and famous personalities.</li>
+                    <li><strong>Computer Knowledge:</strong> Basic computer concepts, hardware, software, internet, and common applications.</li>
+                </ul>
+                <p>Regularly practicing quizzes and reading newspapers are highly recommended for improving your GK score.</p>
+            </div>
+
+            <div class="gk-content-section download-section">
+                <h4>Download: Puducherry Union Territory MCQ PDF</h4>
+                <p>Prepare specifically for Puducherry-related questions with our exclusive Multiple Choice Questions (MCQ) PDF.</p>
+                <p style="font-size: 0.9em; color: var(--primary-dark-teal);">To unlock the download, please watch a short promotional message.</p>
+                <button id="watchAdBtn" class="download-button">Watch Ad to Download</button>
+                <a id="downloadLink" href="Src/Assets/Puducherry Union Territory - MCQ ASPA SMART LEARN.pdf" download="Puducherry_UT_MCQ_ASPA_SMART_LEARN.pdf" class="download-button" style="display: none;">Download PDF Now!</a>
+                <p id="downloadMessage" class="download-message"></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Aspa Smart Learn. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="adModalOverlay" class="ad-modal-overlay">
+        <div class="ad-modal-content">
+            <button id="adCloseBtn" class="ad-close-button">&times;</button>
+            <h3>Promotional Message</h3>
+            <p>Your download will be ready shortly. Thank you for supporting Aspa Smart Learn!</p>
+            <div class="ad-countdown" id="adCountdown">5</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger Menu Toggle (reused from other pages)
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const navMenu = document.getElementById('navMenu');
+
+            hamburgerMenu.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                hamburgerMenu.classList.toggle('active');
+            });
+
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        hamburgerMenu.classList.remove('active');
+                    }
+                });
+            });
+
+            // PDF Download with Ad Simulation Logic
+            const watchAdBtn = document.getElementById('watchAdBtn');
+            const downloadLink = document.getElementById('downloadLink');
+            const downloadMessage = document.getElementById('downloadMessage');
+            const adModalOverlay = document.getElementById('adModalOverlay');
+            const adModalContent = document.getElementById('adModalContent');
+            const adCountdown = document.getElementById('adCountdown');
+            const adCloseBtn = document.getElementById('adCloseBtn');
+
+            const adDuration = 5; // seconds
+
+            watchAdBtn.addEventListener('click', function() {
+                watchAdBtn.disabled = true; // Disable button during ad
+                downloadMessage.textContent = 'Please wait, playing ad...';
+                adModalOverlay.classList.add('show');
+
+                let countdown = adDuration;
+                adCountdown.textContent = countdown;
+
+                const countdownInterval = setInterval(() => {
+                    countdown--;
+                    adCountdown.textContent = countdown;
+                    if (countdown <= 0) {
+                        clearInterval(countdownInterval);
+                        adModalOverlay.classList.remove('show');
+                        downloadLink.style.display = 'inline-block'; // Show download button
+                        watchAdBtn.style.display = 'none'; // Hide watch ad button
+                        downloadMessage.textContent = 'Ad finished! Click "Download PDF Now!"';
+                    }
+                }, 1000);
+            });
+
+            adCloseBtn.addEventListener('click', function() {
+                // Allow closing modal, but download won't be available until ad finishes
+                adModalOverlay.classList.remove('show');
+                if (adCountdown.textContent > 0) { // If ad not finished
+                    watchAdBtn.disabled = false;
+                    downloadMessage.textContent = 'Ad interrupted. Click "Watch Ad to Download" again.';
+                }
+            });
+
+            // Prevent closing modal by clicking outside during ad
+            adModalOverlay.addEventListener('click', function(e) {
+                if (e.target === adModalOverlay && adCountdown.textContent > 0) {
+                    // Do nothing if clicked outside and ad is still playing
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+  
