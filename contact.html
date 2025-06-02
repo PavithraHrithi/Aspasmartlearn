@@ -231,9 +231,39 @@
 
     <div id="messageBox" class="message-box"></div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hamburger Menu Toggle
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        let db;
+        let auth;
+        let appId;
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Initialize Firebase App
+            try {
+                appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+                const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+
+                // Sign in user
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                    console.log("Firebase signed in with custom token.");
+                } else {
+                    await signInAnonymously(auth);
+                    console.log("Firebase signed in anonymously.");
+                }
+            } catch (error) {
+                console.error("Error initializing Firebase or signing in:", error);
+                // Display error message to user if Firebase fails to initialize
+                showMessage("Error initializing contact form. Please try again later.", true);
+            }
+
+            // Hamburger Menu Toggle (Existing)
             const hamburgerMenu = document.getElementById('hamburgerMenu');
             const navMenu = document.getElementById('navMenu');
 
@@ -251,34 +281,50 @@
                 });
             });
 
-            // Contact Form Submission Logic
+            // Contact Form Submission Logic (Updated for Firestore)
             const contactForm = document.getElementById('contactForm');
             const messageBox = document.getElementById('messageBox');
 
-            contactForm.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent default form submission
-
-                // Simulate sending message
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-
-                console.log('Form Submitted:');
-                console.log('Name:', name);
-                console.log('Email:', email);
-                console.log('Message:', message);
-
-                // Display success message
-                messageBox.textContent = 'Thank you for your message! We will get back to you soon.';
+            // Helper function to display messages
+            function showMessage(message, isError = false) {
+                messageBox.textContent = message;
+                messageBox.style.backgroundColor = isError ? 'red' : 'var(--primary-dark-teal)';
                 messageBox.classList.add('show');
-
-                // Hide message after 3 seconds
                 setTimeout(() => {
                     messageBox.classList.remove('show');
                 }, 3000);
+            }
 
-                // Clear the form
-                contactForm.reset();
+            contactForm.addEventListener('submit', async function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                if (!db || !auth || !auth.currentUser) {
+                    showMessage("Form not ready. Please wait or refresh the page.", true);
+                    return;
+                }
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                const userId = auth.currentUser.uid; // Get the current user's ID
+
+                try {
+                    // Save message to Firestore
+                    // Path: /artifacts/{appId}/public/data/contactMessages
+                    await addDoc(collection(db, `artifacts/${appId}/public/data/contactMessages`), {
+                        name: name,
+                        email: email,
+                        message: message,
+                        timestamp: new Date(),
+                        userId: userId // Store the user ID for reference
+                    });
+
+                    showMessage('Thank you for your message! We will get back to you soon.');
+                    contactForm.reset(); // Clear the form
+                } catch (e) {
+                    console.error("Error adding document: ", e);
+                    showMessage("Failed to send message. Please try again.", true);
+                }
             });
         });
     </script>
