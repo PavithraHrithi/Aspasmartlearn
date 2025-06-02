@@ -7,7 +7,142 @@
     <meta name="description" content="Find the latest government job notifications and application details for Puducherry (Pondicherry) including Village Assistant, VAO, and Deputy Tahsildar posts. Stay updated with application deadlines and exam dates.">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/index.css">
-    </head>
+    <style>
+        /*
+         * IMPORTANT: These styles are specific to current-openings.html
+         * and are placed here as per user's request to NOT modify src/index.css.
+         * For site-wide consistency and better maintainability,
+         * it is generally recommended to manage these styles in src/index.css.
+         */
+
+        /* Ensures the main content area is a centered card */
+        .main-content .container.content-card {
+            max-width: 900px; /* Adjusted max-width for the overall content container */
+            margin-left: auto;
+            margin-right: auto;
+            padding: 40px; /* Generous padding inside the card */
+            background-color: var(--text-light);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            border: 1px solid var(--accent-gray);
+            margin-top: 50px; /* Added margin-top to separate from header */
+            margin-bottom: 50px; /* Added margin-bottom to separate from footer */
+        }
+
+        /* Force single column for job listings */
+        .openings-list {
+            display: grid;
+            grid-template-columns: 1fr; /* Forces single column on desktop */
+            gap: 30px; /* Space between job cards */
+            margin-top: 50px;
+            max-width: 800px; /* Limit width for readability within the content-card */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .opening-card {
+            background-color: var(--text-light);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            padding: 30px;
+            border-left: 5px solid var(--primary-light-teal);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* No max-width here, it's controlled by .openings-list */
+        }
+
+        .opening-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--hover-shadow-color);
+        }
+
+        .opening-card h3 {
+            color: var(--primary-dark-teal);
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            text-align: left; /* Ensure title is left-aligned */
+        }
+
+        .opening-card p {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            color: var(--accent-dark-gray);
+            line-height: 1.7; /* Ensure good line height for readability */
+        }
+
+        .opening-card strong {
+            color: var(--primary-dark-teal);
+        }
+
+        .opening-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: flex-start; /* Align buttons to the left */
+        }
+
+        .opening-links a {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .opening-links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .opening-links .btn-primary {
+            background-color: var(--primary-light-teal);
+            color: var(--text-light);
+        }
+
+        .opening-links .btn-primary:hover {
+            background-color: var(--primary-dark-teal);
+        }
+
+        .opening-links .btn-secondary {
+            background-color: var(--background-light);
+            color: var(--primary-dark-teal);
+            border: 1px solid var(--primary-dark-teal);
+        }
+
+        .opening-links .btn-secondary:hover {
+            background-color: var(--primary-dark-teal);
+            color: var(--text-light);
+        }
+
+        /* Responsive adjustments for current openings (inline) */
+        @media (max-width: 1024px) {
+            .main-content .container.content-card {
+                max-width: 95%; /* Adjust for smaller screens */
+                padding: 30px;
+            }
+            .openings-list {
+                max-width: 95%; /* Allow more width on tablets */
+            }
+        }
+
+        @media (max-width: 767px) {
+            .opening-card {
+                padding: 20px;
+            }
+            .opening-card h3 {
+                font-size: 1.5em;
+            }
+            .opening-links {
+                flex-direction: column;
+            }
+            .opening-links a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
 <body>
     <header class="header">
         <div class="container header-content">
@@ -20,7 +155,6 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="how-to-apply.html">How to Apply</a></li>
                     <li><a href="current-openings.html" class="active">Current Openings</a></li>
-                    <li><a href="Editphoto.html" class="active">Edit Photo</a></li>
                     <li><a href="subjects.html">Subjects</a></li>
                     <li><a href="official-sites.html">Official Sites</a></li>
                     <li><a href="about.html">About</a></li>
@@ -36,7 +170,8 @@
     </header>
 
     <main class="main-content section-padding">
-        <div class="container content-card"> <h2>Latest Government Job Notifications</h2>
+        <div class="container content-card">
+            <h2>Latest Government Job Notifications</h2>
             <p style="text-align: center; margin-bottom: 50px; font-size: 1.1em; color: var(--accent-dark-gray);">Stay updated with the newest job opportunities for Puducherry Government Exams. Click on the links below for official notifications and application details.</p>
 
             <div class="openings-list">
